@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARTEMKA DEV — Telegram проекты</title>
+<meta name="description" content="ARTEMKA DEV — разработка Telegram-ботов, Mini Apps, сайтов и автоматизации.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#08090d;
+    color:#fff;
+    line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1100px,92%);margin:auto}
+
+nav{
+    position:sticky;top:0;z-index:10;
+    backdrop-filter:blur(15px);
+    background:rgba(8,9,13,.8);
+    border-bottom:1px solid #20232c;
+}
+.nav{
+    min-height:65px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.logo{font-size:21px;font-weight:800}
+.logo span{color:#6c8cff}
+.nav-links{display:flex;gap:22px;color:#aaa;font-size:14px}
+.nav-links a:hover{color:#fff}
+
+.hero{
+    padding:100px 0 80px;
+    text-align:center;
+}
+.badge{
+    display:inline-block;
+    padding:7px 14px;
+    border:1px solid #29334f;
+    border-radius:30px;
+    color:#8ea7ff;
+    background:#101426;
+    font-size:13px;
+    margin-bottom:22px;
+}
+.hero h1{
+    font-size:clamp(42px,9vw,82px);
+    line-height:1;
+    letter-spacing:-3px;
+    margin-bottom:22px;
+}
+.hero h1 span{
+    background:linear-gradient(90deg,#6c8cff,#9c6cff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+.hero p{
+    max-width:650px;
+    margin:auto;
+    color:#a6a8b1;
+    font-size:18px;
+}
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+.btn{
+    padding:13px 21px;
+    border-radius:12px;
+    font-weight:700;
+    border:1px solid #292d38;
+}
+.btn-main{
+    background:#fff;
+    color:#08090d;
+}
+.btn-main:hover{transform:translateY(-2px)}
+.btn-dark{background:#11131a;color:#fff}
+
+section{padding:70px 0}
+.section-title{
+    font-size:34px;
+    margin-bottom:12px;
+}
+.section-subtitle{
+    color:#888c97;
+    margin-bottom:30px;
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+.card{
+    background:linear-gradient(145deg,#11131a,#0d0f15);
+    border:1px solid #222631;
+    border-radius:22px;
+    padding:28px;
+    transition:.25s;
+}
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#3a4260;
+}
+.icon{font-size:42px;margin-bottom:16px}
+.card h3{font-size:25px;margin-bottom:8px}
+.card p{color:#969aa5;margin-bottom:18px}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{
+    padding:5px 10px;
+    border-radius:8px;
+    background:#181b24;
+    color:#aeb3c0;
+    font-size:12px;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+}
+.service{
+    padding:22px;
+    border:1px solid #222631;
+    background:#0e1016;
+    border-radius:16px;
+}
+.service b{font-size:17px}
+.service p{color:#858995;margin-top:5px;font-size:14px}
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+.step{
+    border:1px solid #222631;
+    border-radius:18px;
+    padding:24px;
+}
+.number{
+    color:#718cff;
+    font-weight:800;
+    font-size:13px;
+    margin-bottom:10px;
+}
+.step p{color:#898d98;font-size:14px;margin-top:6px}
+
+.contact{
+    text-align:center;
+    padding:70px 20px;
+    border:1px solid #252936;
+    border-radius:25px;
+    background:linear-gradient(145deg,#111522,#0b0d13);
+}
+.contact p{
+    color:#9296a2;
+    margin:10px auto 25px;
+    max-width:600px;
+}
+
+footer{
+    border-top:1px solid #20232c;
+    padding:25px 0;
+    color:#666b77;
+    text-align:center;
+    font-size:13px;
+}
+
+@media(max-width:700px){
+    .nav-links{display:none}
+    .hero{padding:75px 0 55px}
+    .hero h1{letter-spacing:-2px}
+    .hero p{font-size:16px}
+    .projects,.services,.steps{grid-template-columns:1fr}
+    section{padding:50px 0}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="container nav">
+    <a class="logo" href="#">ARTEMKA<span> DEV</span></a>
+    <div class="nav-links">
+        <a href="#projects">Проекты</a>
+        <a href="#services">Услуги</a>
+        <a href="#contact">Контакты</a>
+    </div>
+</div>
+</nav>
+
+<header class="hero">
+<div class="container">
+    <div class="badge">🚀 Разработка Telegram-проектов</div>
+
+    <h1>Создаю проекты,<br><span>которые работают.</span></h1>
+
+    <p>
+        Telegram-боты, Mini Apps, сайты и автоматизация
+        под конкретные задачи бизнеса и пользователей.
+    </p>
+
+    <div class="buttons">
+        <a class="btn btn-main" href="#projects">Смотреть проекты</a>
+        <a class="btn btn-dark" href="https://t.me/Artemk_a_404_04">Связаться со мной</a>
+    </div>
+</div>
+</header>
+
+<section id="projects">
+<div class="container">
+    <h2 class="section-title">Мои проекты</h2>
+    <p class="section-subtitle">Примеры разработанных Telegram-проектов</p>
+
+    <div class="projects">
+
+        <article class="card">
+            <div class="icon">🚗</div>
+            <h3>AutoSearchBot</h3>
+            <p>
+                Telegram-бот для автоматического поиска автомобилей
+                по заданным параметрам и мониторинга новых объявлений.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Aiogram</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">Мониторинг</span>
+                <span class="tag">AI</span>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="icon">💎</div>
+            <h3>AtlantidaMarket</h3>
+            <p>
+                Telegram Market с каталогом объявлений,
+                сделками, статусами, платежами и Mini App-интерфейсом.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Telegram Bot</span>
+                <span class="tag">Mini App</span>
+                <span class="tag">Python</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">API</span>
+            </div>
+        </article>
+
+    </div>
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+    <h2 class="section-title">Что я создаю</h2>
+    <p class="section-subtitle">Проекты под задачу клиента</p>
+
+    <div class="services">
+
+        <div class="service">
+            <b>🤖 Telegram-боты</b>
+            <p>Магазины, каталоги, игры, заявки, автоматизация и сервисы.</p>
+        </div>
+
+        <div class="service">
+            <b>📱 Telegram Mini Apps</b>
+            <p>Интерфейсы магазинов, каталогов, сервисов и личных кабинетов.</p>
+        </div>
+
+        <div class="service">
+            <b>🌐 Сайты</b>
+            <p>Современные адаптивные сайты для телефона и компьютера.</p>
+        </div>
+
+        <div class="service">
+            <b>⚙️ Автоматизация</b>
+            <p>Базы данных, API, уведомления, мониторинг и фоновые задачи.</p>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container">
+    <h2 class="section-title">Как проходит работа</h2>
+
+    <div class="steps">
+
+        <div class="step">
+            <div class="number">01 — ИДЕЯ</div>
+            <h3>Обсуждаем задачу</h3>
+            <p>Определяем функции, дизайн и необходимую логику.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">02 — РАЗРАБОТКА</div>
+            <h3>Создаю проект</h3>
+            <p>Разрабатываю интерфейс, backend, базу данных и интеграции.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">03 — ЗАПУСК</div>
+            <h3>Передаю готовый проект</h3>
+            <p>Проверяем работу и запускаем проект для пользователей.</p>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+    <div class="contact">
+        <h2 class="section-title">Есть идея проекта?</h2>
+
+        <p>
+            Напиши мне в Telegram. Обсудим задачу,
+            функции и способ реализации.
+        </p>
+
+        <a class="btn btn-main"
+           href="https://t.me/Artemk_a_404_04">
+           💬 Написать в Telegram
+        </a>
+    </div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+    © 2026 ARTEMKA DEV · Telegram Bots · Mini Apps · Websites
+</div>
+</footer>
+
+</body>
+</html>
