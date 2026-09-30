@@ -296,6 +296,262 @@ footer{
 }
 </style>
 
+
+<style id="premium-design">
+:root {
+    --bg: #05060a;
+    --card: rgba(15, 17, 27, .72);
+    --border: rgba(255,255,255,.09);
+    --text: #f7f7fb;
+    --muted: #9da1b2;
+    --blue: #6d7cff;
+    --purple: #a855f7;
+    --cyan: #38d9ff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(circle at 15% 10%, rgba(109,124,255,.16), transparent 28%),
+        radial-gradient(circle at 85% 25%, rgba(168,85,247,.13), transparent 30%),
+        radial-gradient(circle at 50% 85%, rgba(56,217,255,.08), transparent 28%),
+        var(--bg) !important;
+    color: var(--text) !important;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 45px 45px;
+    mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+::selection {
+    background: rgba(109,124,255,.35);
+    color: white;
+}
+
+.nav {
+    background: rgba(5,6,10,.72) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border) !important;
+}
+
+.logo,
+.brand {
+    letter-spacing: -1px;
+}
+
+.hero {
+    position: relative;
+    padding-top: 120px !important;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(109,124,255,.2), transparent 68%);
+    filter: blur(25px);
+    z-index: -1;
+    animation: pulseGlow 5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%,100% { opacity: .65; transform: translateX(-50%) scale(1); }
+    50% { opacity: 1; transform: translateX(-50%) scale(1.12); }
+}
+
+.badge {
+    background: rgba(109,124,255,.09) !important;
+    border: 1px solid rgba(109,124,255,.28) !important;
+    box-shadow: 0 0 35px rgba(109,124,255,.12);
+    backdrop-filter: blur(15px);
+}
+
+.hero h1 {
+    font-size: clamp(46px, 8vw, 88px) !important;
+    line-height: .98 !important;
+    letter-spacing: -4px !important;
+    font-weight: 900 !important;
+}
+
+.hero h1 span,
+.gradient,
+.highlight {
+    background: linear-gradient(100deg, #fff 5%, #7c8cff 45%, #c084fc 80%, #38d9ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+}
+
+.hero p {
+    color: #aeb2c2 !important;
+    max-width: 720px;
+}
+
+.btn {
+    border-radius: 16px !important;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease !important;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(109,124,255,.2);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #6d7cff, #9b5cff) !important;
+    border: 1px solid rgba(255,255,255,.15) !important;
+}
+
+.btn-secondary {
+    background: rgba(255,255,255,.035) !important;
+    border: 1px solid var(--border) !important;
+    backdrop-filter: blur(15px);
+}
+
+section {
+    position: relative;
+}
+
+section h2 {
+    letter-spacing: -2px;
+}
+
+.project-card,
+.service-card,
+.step,
+.request-box,
+.card {
+    background: linear-gradient(145deg, rgba(20,23,35,.82), rgba(9,10,16,.78)) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.25),
+        inset 0 1px 0 rgba(255,255,255,.035) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease !important;
+}
+
+.project-card:hover,
+.service-card:hover,
+.step:hover {
+    transform: translateY(-8px);
+    border-color: rgba(109,124,255,.35) !important;
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.4),
+        0 0 40px rgba(109,124,255,.08) !important;
+}
+
+.project-card::before {
+    content: "";
+    display: block;
+    height: 3px;
+    margin: -1px -1px 25px;
+    border-radius: 20px 20px 0 0;
+    background: linear-gradient(90deg, #6d7cff, #a855f7, #38d9ff);
+    opacity: .8;
+}
+
+.project-card h3 {
+    font-size: 26px !important;
+}
+
+.project-card p,
+.service-card p,
+.step p {
+    color: var(--muted) !important;
+}
+
+.project-card .tag,
+.tag {
+    background: rgba(109,124,255,.1) !important;
+    border: 1px solid rgba(109,124,255,.18) !important;
+    color: #b9c0ff !important;
+}
+
+.request-section {
+    position: relative;
+}
+
+.request-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.request-box::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    right: -100px;
+    top: -120px;
+    background: radial-gradient(circle, rgba(109,124,255,.22), transparent 70%);
+    pointer-events: none;
+}
+
+.request-button {
+    background: linear-gradient(135deg, #6d7cff, #9b5cff, #38d9ff) !important;
+    background-size: 200% 200% !important;
+    animation: gradientMove 5s ease infinite;
+    box-shadow: 0 12px 35px rgba(109,124,255,.2);
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.request-form input,
+.request-form select,
+.request-form textarea {
+    background: rgba(3,4,8,.7) !important;
+    border-color: rgba(255,255,255,.08) !important;
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    color: #777c8d;
+}
+
+a {
+    transition: color .2s ease, opacity .2s ease;
+}
+
+@media (max-width: 650px) {
+    .hero {
+        padding-top: 85px !important;
+    }
+
+    .hero h1 {
+        font-size: 48px !important;
+        letter-spacing: -2.5px !important;
+    }
+
+    .project-card,
+    .service-card {
+        border-radius: 22px !important;
+    }
+}
+</style>
+
 </head>
 
 <body>
