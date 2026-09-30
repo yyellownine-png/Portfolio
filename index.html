@@ -185,6 +185,117 @@ footer{
     section{padding:50px 0}
 }
 </style>
+
+<style>
+.request-section {
+    padding: 100px 20px;
+}
+
+.request-box {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 28px;
+    background: linear-gradient(145deg, #11131a, #0b0c10);
+    box-shadow: 0 25px 80px rgba(0,0,0,.35);
+}
+
+.request-box h2 {
+    margin-bottom: 10px;
+}
+
+.request-subtitle {
+    color: #9da1ad;
+    margin-bottom: 28px;
+}
+
+.request-form {
+    display: grid;
+    gap: 16px;
+}
+
+.request-form label {
+    color: #c8cad2;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.request-form input,
+.request-form select,
+.request-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 8px;
+    padding: 15px 16px;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 14px;
+    background: #08090d;
+    color: #fff;
+    font: inherit;
+    outline: none;
+    transition: .2s;
+}
+
+.request-form input:focus,
+.request-form select:focus,
+.request-form textarea:focus {
+    border-color: #6d7cff;
+    box-shadow: 0 0 0 3px rgba(109,124,255,.12);
+}
+
+.request-form textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.request-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.request-button {
+    border: 0;
+    border-radius: 15px;
+    padding: 17px 22px;
+    margin-top: 5px;
+    background: linear-gradient(135deg, #6d7cff, #9b5cff);
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.request-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+}
+
+.request-note {
+    text-align: center;
+    color: #777c89;
+    font-size: 13px;
+    margin-top: 14px;
+}
+
+@media (max-width: 650px) {
+    .request-box {
+        padding: 22px;
+        border-radius: 22px;
+    }
+
+    .request-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .request-section {
+        padding: 70px 16px;
+    }
+}
+</style>
+
 </head>
 
 <body>
@@ -345,6 +456,98 @@ footer{
     © 2026 ARTEMKA DEV · Telegram Bots · Mini Apps · Websites
 </div>
 </footer>
+
+
+<section class="request-section" id="request">
+    <div class="request-box">
+        <h2>Обсудим ваш проект</h2>
+        <p class="request-subtitle">
+            Заполните небольшую форму — я получу заявку в Telegram и свяжусь с вами.
+        </p>
+
+        <form class="request-form" id="requestForm">
+            <div class="request-grid">
+                <label>
+                    Ваше имя
+                    <input id="clientName" type="text" placeholder="Например, Артём" required>
+                </label>
+
+                <label>
+                    Тип проекта
+                    <select id="projectType" required>
+                        <option value="">Выберите проект</option>
+                        <option>Telegram-бот</option>
+                        <option>Telegram Mini App</option>
+                        <option>Сайт</option>
+                        <option>Автоматизация</option>
+                        <option>Проект под ключ</option>
+                        <option>Другое</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="request-grid">
+                <label>
+                    Примерный бюджет
+                    <select id="budget">
+                        <option value="">Не определился</option>
+                        <option>до $50</option>
+                        <option>$50–100</option>
+                        <option>$100–250</option>
+                        <option>$250–500</option>
+                        <option>$500+</option>
+                    </select>
+                </label>
+
+                <label>
+                    Контакт
+                    <input id="clientContact" type="text" placeholder="@username">
+                </label>
+            </div>
+
+            <label>
+                Расскажите о задаче
+                <textarea id="projectDescription"
+                    placeholder="Что нужно разработать? Какие функции должны быть?"></textarea>
+            </label>
+
+            <button class="request-button" type="submit">
+                🚀 Отправить заявку в Telegram
+            </button>
+
+            <div class="request-note">
+                Нажимая кнопку, вы перейдёте в Telegram с готовым сообщением.
+            </div>
+        </form>
+    </div>
+</section>
+
+
+<script>
+document.getElementById("requestForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("clientName").value.trim();
+    const type = document.getElementById("projectType").value;
+    const budget = document.getElementById("budget").value || "Не указан";
+    const contact = document.getElementById("clientContact").value.trim() || "Не указан";
+    const description = document.getElementById("projectDescription").value.trim() || "Не указано";
+
+    const message =
+`🚀 Новая заявка с портфолио ARTEMKA DEV
+
+👤 Имя: ${name}
+💻 Проект: ${type}
+💰 Бюджет: ${budget}
+📱 Контакт: ${contact}
+
+📝 Задача:
+${description}`;
+
+    const url = "https://t.me/Artemk_a_404_04?text=" + encodeURIComponent(message);
+    window.location.href = url;
+});
+</script>
 
 </body>
 </html>
